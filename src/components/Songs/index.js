@@ -4,6 +4,8 @@ import SearchTracks from './SearchTracks';
 import Tracks from './Tracks';
 import ProgressBar from './../Common/ProgressBar';
 import Message from './../Common/Message';
+import ButtonPrimary from './../Common/ButtonPrimary';
+
 
 const Songs = () => {
     const { validateQTrack, doneFetch, tracks, text } = useContext(SongsContext);
@@ -18,6 +20,7 @@ const Songs = () => {
                 : 
                     <ProgressBar />
             }
+            <ButtonPrimary type="back" to="/"/>
         </Fragment>
     )
 };

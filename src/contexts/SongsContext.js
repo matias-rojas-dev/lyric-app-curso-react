@@ -34,19 +34,16 @@ const SongsContextProvider = ({ children }) => {
       .catch((err) => console.log(err));
   };
 
-  const validateQTrack = (
-    e,
-    q_track = document.querySelector("#qtrack").value.toLowerCase().trim()
-  ) => {
-    if (e.type === "keypress" && e.key !== "Enter") return;
+  const validateQTrack = (e, q_track = document.querySelector('#q_track').value.toLowerCase().trim()) => {
+    if(e.type === 'keypress' && e.key !== 'Enter') return ;
     const words = q_track.match(/\w+/g);
-    q_track = words && words.join("");
+    q_track = words && words.join(' ');
     if (q_track && q_track !== currentQTrack) {
-      setCurrentQTrack(q_track);
-      setDoneFetch(false);
-      getTracks(q_track);
+        setCurrentQTrack(q_track);
+        setDoneFetch(false);
+        getTracks(q_track);
     }
-  };
+}
 
   return (
     <SongsContext.Provider value={{ doneFetch, text, tracks, validateQTrack }}>
