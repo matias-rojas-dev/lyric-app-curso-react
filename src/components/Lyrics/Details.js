@@ -23,6 +23,7 @@ const Details = ({ track, lyrics }) => {
             }
             <ul>
                 <li>
+                    
                     <strong>Album ID: </strong>
                     <span>{album_id}</span>
                 </li>
@@ -44,6 +45,7 @@ const Details = ({ track, lyrics }) => {
                         </li>
                 }
                 </li>
+
                 {
                     release_date !== 'Invalid Date' &&
                         <li>
