@@ -23,7 +23,7 @@ const SongsContextProvider = ({ children }) => { // siempre que se trabaja con c
       .catch((err) => console.log(err));
   };
 
-  const getTracks = (q_track) => {
+  const getTracks = (q_track) => { // función para obtener una track por un parámetro
     fetch(trackSearch(q_track))
       .then((res) => res.json())
       .then((data) => {
@@ -36,10 +36,10 @@ const SongsContextProvider = ({ children }) => { // siempre que se trabaja con c
   };
 
   const validateQTrack = (e, q_track = document.querySelector('#q_track').value.toLowerCase().trim()) => {
-    if (e.type === 'keypress' && e.key !== 'Enter') return;
-    const words = q_track.match(/\w+/g);
-    q_track = words && words.join(' ');
-    if (q_track && q_track !== currentQTrack) {
+    if (e.type === 'keypress' && e.key !== 'Enter') return; // agregamos el Enter como botón de búsqueda 
+    const words = q_track.match(/\w+/g); // busca por palabra completa o con letra o número
+    q_track = words && words.join(' '); // separamos las palabras por un espacio
+    if (q_track && q_track !== currentQTrack) { // si viene un q_track y además es distinto al actual
       setCurrentQTrack(q_track);
       setDoneFetch(false);
       getTracks(q_track);
