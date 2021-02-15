@@ -8,7 +8,7 @@ import ButtonPrimary from './../Common/ButtonPrimary';
 
 
 const Songs = () => {
-    const { validateQTrack, doneFetch, tracks, text } = useContext(SongsContext);
+    const { validateQTrack, doneFetch, tracks, text } = useContext(SongsContext); // usamos el contexto creado
     
     return (
         <Fragment>
