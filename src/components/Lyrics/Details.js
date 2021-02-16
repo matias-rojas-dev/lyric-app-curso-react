@@ -3,21 +3,29 @@ import Paper from '@material-ui/core/Paper';
 
 const Details = ({ track, lyrics }) => {
     const { track_name, artist_name, album_id, primary_genres, explicit, updated_time } = track;
+    // track.track_name, track.artist_name, track.album_id, ... , track.updated_time
     const { music_genre_list } = primary_genres;
+    // track.primary_genres.music_genre_list
     const { music_genre_name } = music_genre_list.length && music_genre_list[0].music_genre;
+
     const release_date = typeof updated_time === 'string' ? new Date(updated_time).toDateString() : 'Invalid date';
-    const lyricsParagraphs = lyrics.split('\n');
+    
+    const lyricsParagraphs = lyrics.split('\n'); 
+    // separa cada vez que encuentra un salto de línea o \n 
+    
     lyricsParagraphs.splice(lyricsParagraphs.length - 3, 3 );
+    // este código sirve para delimitar un texto
     
     return(
         <Paper className="paper defaultPaper">
             <strong className="title">{`${track_name} - ${artist_name}`}</strong>
             {
-                lyricsParagraphs.map((lyricsParagraph, index) => 
+                lyricsParagraphs.map((lyricsParagraph, index) => //recorrer el lyricsParagraphs e ir mostrando los párrafos
                     lyricsParagraph === '' || lyricsParagraph === '' ? 
                         <br key={index} />
+                        // este br separa los párrafos cuando se cumpla la condición anterior
 
-                    :   <p key={index}>{`${lyricsParagraph} - ${index}`}</p>
+                    :   <p key={index}>{`${lyricsParagraph}`}</p>
                 )
                 
             }
@@ -49,7 +57,7 @@ const Details = ({ track, lyrics }) => {
                 {
                     release_date !== 'Invalid Date' &&
                         <li>
-                            <strong>Release Date:</strong>
+                            <strong>Release Date: </strong>
                             <span>{release_date}</span>
                         </li>
                 }

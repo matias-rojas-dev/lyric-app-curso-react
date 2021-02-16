@@ -8,8 +8,8 @@ import Details from './Details';
 
 const Lyrics = () => {
 
-    const { doneFetchTrack, doneFetchLyrics, track, lyrics } = useContext(LyricsContext);
-
+    const { doneFetchTrack, doneFetchLyrics, track, lyrics } = useContext(LyricsContext); //podemos utilizar estas propiedades mediante un contexto
+    console.log(`${doneFetchLyrics} ${doneFetchTrack} ${track} ${lyrics}` )
     return(
         <Fragment>
             {
